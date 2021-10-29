@@ -33,7 +33,7 @@ router.get('/register', indexController.displayRegisterPage);
 /* POST Route for processing the Register page */
 router.post('/register', indexController.processRegisterPage);
 
-/* GET to perform UserLogout */
+/* GET to performing UserLogout */
 router.get('/logout', indexController.performLogout);
 
 module.exports = router;

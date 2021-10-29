@@ -12,7 +12,7 @@
   {
       console.log("App Started...");
 
-      // prompts the user before deleting database entry
+      // prompts the user before deleting a database entry
       let deleteButtons = document.querySelectorAll('.delete-button');
       
       for(button of deleteButtons)

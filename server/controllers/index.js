@@ -77,26 +77,13 @@ module.exports.processLoginPage = (req, res, next) => {
                 email: user.email
             }
 
-            //const authToken = jwt.sign(payload, DB.Secret, {
-            //    expiresIn: 604800 // 1 week
-            //});
-
-            /* TODO - Getting Ready to convert to API
-            res.json({success: true, msg: 'User Logged in Successfully!', user: {
-                id: user._id,
-                displayName: user.displayName,
-                username: user.username,
-                email: user.email
-            }, token: authToken});
-            */
-
             return res.redirect('/business-contact-list');
         });
     })(req, res, next);
 }
 
 module.exports.displayRegisterPage = (req, res, next) => {
-    // check if the user is not already logged in
+    // check if the user is already logged in
     if(!req.user)
     {
         res.render('auth/register',
@@ -113,10 +100,9 @@ module.exports.displayRegisterPage = (req, res, next) => {
 }
 
 module.exports.processRegisterPage = (req, res, next) => {
-    // instantiate a user object
+    // instantiate an user object
     let newUser = new User({
         username: req.body.username,
-        //password: req.body.password
         email: req.body.email,
         displayName: req.body.displayName
     });
@@ -146,9 +132,7 @@ module.exports.processRegisterPage = (req, res, next) => {
 
             // redirect the user and authenticate them
 
-            /* TODO - Getting Ready to convert to API
-            res.json({success: true, msg: 'User Registered Successfully!'});
-            */
+            /* TODO - Getting Ready to convert to API*/
 
             return passport.authenticate('local')(req, res, () => {
                 res.redirect('/business-contact-list')
